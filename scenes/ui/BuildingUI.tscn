@@ -1,0 +1,27 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/BuildingUI.gd" id="1_ui"]
+
+[node name="BuildingUI" type="CanvasLayer"]
+script = ExtResource("1_ui")
+
+[node name="BottomArea" type="VBoxContainer" parent="."]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -150.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 2
+
+[node name="BuildingPanel" type="PanelContainer" parent="BottomArea"]
+visible = false
+
+[node name="ButtonRow" type="HBoxContainer" parent="BottomArea/BuildingPanel"]
+alignment = 1
+theme_override_constants/separation = 12
+
+[node name="ToggleButton" type="Button" parent="BottomArea"]
+custom_minimum_size = Vector2(0, 40)
+text = "Строительство"

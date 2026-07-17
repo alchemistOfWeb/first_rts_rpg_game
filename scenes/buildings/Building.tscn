@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/Building.gd" id="1_bld"]
+
+[node name="Building" type="Node2D"]
+script = ExtResource("1_bld")
+
+[node name="Visual" type="ColorRect" parent="."]
+mouse_filter = 2
+color = Color(1, 1, 1, 1)
+
+[node name="Icon" type="TextureRect" parent="."]
+mouse_filter = 2
+stretch_mode = 0
+
+[node name="HPBarBack" type="ColorRect" parent="."]
+mouse_filter = 2
+color = Color(0.15, 0.15, 0.15, 1)
+
+[node name="HPBarFill" type="ColorRect" parent="."]
+mouse_filter = 2
+color = Color(0.2, 0.85, 0.2, 1)

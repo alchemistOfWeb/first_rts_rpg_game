@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="PackedScene" path="res://scenes/buildings/Building.tscn" id="1_bld"]
+
+[node name="Castle" instance=ExtResource("1_bld")]
+building_type = 3
