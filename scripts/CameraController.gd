@@ -9,19 +9,15 @@ extends Camera2D
 @export var zoom_min: float = 0.4
 @export var zoom_max: float = 2.5
  
-
-func _process(delta: float) -> void:
+func _get_updated_direction():
 	var dir := Vector2.ZERO
+	# move by keyboard:
+	dir = Vector2(
+		Input.get_axis("move_left", "move_right"), 
+		Input.get_axis("move_up", "move_down")
+	)
 
-	if Input.is_key_pressed(KEY_A):
-		dir.x -= 1
-	if Input.is_key_pressed(KEY_D):
-		dir.x += 1
-	if Input.is_key_pressed(KEY_W):
-		dir.y -= 1
-	if Input.is_key_pressed(KEY_S):
-		dir.y += 1
-
+	# move by mouse:
 	if edge_pan_enabled and DisplayServer.window_is_focused():
 		var mouse_pos := get_viewport().get_mouse_position()
 		var vp_size := get_viewport_rect().size
@@ -33,10 +29,15 @@ func _process(delta: float) -> void:
 			dir.y -= 1
 		elif mouse_pos.y >= vp_size.y - edge_pan_margin:
 			dir.y += 1
- 
-	if dir != Vector2.ZERO:
-		dir = dir.normalized()
-		global_position += dir * pan_speed * zoom.x * delta
+		
+	return dir.normalized() if (dir != Vector2.ZERO) else dir
+	
+func _move_camera(dir, delta):
+	global_position += dir * pan_speed * delta
+	
+func _process(delta: float) -> void:
+	_move_camera(_get_updated_direction(), delta)
+	
  
  
 func _unhandled_input(event: InputEvent) -> void:
