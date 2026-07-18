@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://cvq5rylapdmb7"]
+
+[ext_resource type="PackedScene" path="res://scenes/buildings/Building.tscn" id="1_yb3uf"]
+[ext_resource type="Script" uid="uid://iawlgq6ad3jw" path="res://scripts/EnemySpawner.gd" id="2_lpf2f"]
+[ext_resource type="Texture2D" uid="uid://bf4k7dn4t05fy" path="res://assets/art/buildings/spawner_default.png" id="3_kx0du"]
+
+[node name="EnemySpawner" unique_id=924707027 instance=ExtResource("1_yb3uf")]
+script = ExtResource("2_lpf2f")
+enemy_type = 0
+spawn_interval = 5.0
+spawn_search_radius = null
+building_name = "Спавнер"
+max_hp = 300
+color = Color(0.851, 0.11, 0.2, 1)
+icon = ExtResource("3_kx0du")
+size_cells = Vector2i(2, 2)
+starting_group = "enemy"
+building_type = 4
+
+[node name="Visual" parent="." index="0"]
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
+color = Color(0.851, 0.11, 0.2, 1)
+
+[node name="Icon" parent="." index="1"]
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
+texture = ExtResource("3_kx0du")
+
+[node name="HPBarBack" parent="." index="2"]
+offset_left = -64.0
+offset_top = -74.0
+offset_right = 64.0
+offset_bottom = -69.0
+
+[node name="HPBarFill" parent="." index="3"]
+offset_left = -64.0
+offset_top = -74.0
+offset_right = 64.0
+offset_bottom = -69.0
+
+[node name="SpawnTimer" type="Timer" parent="." index="4" unique_id=214384500]

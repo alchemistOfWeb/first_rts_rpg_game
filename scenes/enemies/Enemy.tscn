@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://ddlopv66gen2j"]
+
+[ext_resource type="Script" uid="uid://cccimrpvghei" path="res://scripts/Enemy.gd" id="1_hpe7p"]
+[ext_resource type="Texture2D" uid="uid://ds87x0876rpst" path="res://assets/art/creatures/basic_enemy.png" id="2_k7o7a"]
+
+[node name="Enemy" type="Node2D" unique_id=2051157792 groups=["enemy"]]
+script = ExtResource("1_hpe7p")
+
+[node name="Icon" type="TextureRect" parent="." unique_id=610738795]
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 32.0
+offset_bottom = 32.0
+mouse_filter = 2
+texture = ExtResource("2_k7o7a")
+
+[node name="HPBarBack" type="ColorRect" parent="." unique_id=1658057593]
+mouse_filter = 2
+color = Color(0.15, 0.15, 0.15, 1)
+
+[node name="HPBarFill" type="ColorRect" parent="." unique_id=1049478930]
+mouse_filter = 2
+color = Color(0.2, 0.85, 0.2, 1)

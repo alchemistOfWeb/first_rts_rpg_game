@@ -1,8 +1,5 @@
 class_name BuildingData
 extends RefCounted
-## Данные о типах построек (размер, HP, цвет, иконка, требования к местности).
-## НЕ автозагрузка — обычный класс, чтобы Building.gd мог читать эти данные
-## и во время игры, и в редакторе Godot (для превью при ручной расстановке).
 
 enum BuildingType {
 	NONE = -1,
@@ -10,10 +7,9 @@ enum BuildingType {
 	BALLISTA_TOWER = 1,
 	QUARRY = 2,
 	CASTLE = 3,
+	ENEMY_SPAWNER = 4,
 }
 
-## Если переименовываешь файлы иконок - обнови пути preload() здесь
-## (это ЕДИНСТВЕННОЕ место, где они теперь прописаны).
 const BUILDING_DATA := {
 	BuildingType.WALL: {
 		"name": "Стена",
@@ -51,4 +47,14 @@ const BUILDING_DATA := {
 		"dev_only": true,
 		"icon": preload("res://assets/art/buildings/castle.png"),
 	},
+	BuildingType.ENEMY_SPAWNER: {
+		"name": "Спавнер",
+		"size": Vector2i(2, 2),
+		"max_hp": 300,
+		"color": Color(0.851, 0.11, 0.2, 1.0),
+		"requires_terrain": [],
+		"dev_only": true,
+		"icon": preload("res://assets/art/buildings/spawner_default.png"),
+	},
+	
 }

@@ -19,6 +19,11 @@ config/icon="res://icon.svg"
 GridManager="*uid://c4twjgoscujr2"
 BuildingManager="*uid://b34safoniv103"
 
+[global_group]
+
+player=""
+enemy=""
+
 [input]
 
 move_left={
